@@ -7,10 +7,8 @@ function App(){
   const[count3,setCount3] = useState(0);
   useEffect(()=>{
     console.log('useEffect1 ran!')
-  },[count1,count3])
-  useEffect(()=>{
-    console.log('useEffect2 ran!')
-  },[count2])
+  },[count1,count2,count3])
+  
   return(
     <div>
       <User count1={count1} count2={count2} count3={count3} />
