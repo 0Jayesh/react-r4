@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ useEffect ,useState} from 'react';
+import User from './User';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+function App(){
+  const[count1,setCount1] = useState(0);
+  const[count2,setCount2] = useState(0);
+  const[count3,setCount3] = useState(0);
+  useEffect(()=>{
+    console.log('useEffect1 ran!')
+  },[count1,count3])
+  useEffect(()=>{
+    console.log('useEffect2 ran!')
+  },[count2])
+  return(
+    <div>
+      <User count1={count1} count2={count2} count3={count3} />
+      <button onClick={()=>setCount1(count1+1)}>change</button>
+      <button onClick={()=>setCount2(count2+1)}>change</button>
+      <button onClick={()=>setCount3(count3+1)}>change</button>
+      </div>
   );
-}
+  }
+
 
 export default App;
